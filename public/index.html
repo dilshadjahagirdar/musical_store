@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Musical Store</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="row" ng-app="myApp" ng-controller="myCtrl" ng-init="getProducts();loadCart();">
+		<div class="col-xs-12" style="padding: 50px;">
+			<button type="button" class="btn btn-default btn-sm btn-warning col-xs-2 pull-right" ng-click="addItemToCart(product.id)" style="margin: 10px; margin-right: 0px;	">
+				<span class="glyphicon glyphicon-shopping-cart"></span> Cart ({{cart.totalItem}}) ${{cart.cartTotal}}
+			</button>
+			<input class="form-control" type="text" ng-model="search" placeholder="Search item by name, model and brand"> 
+			<table class="col-xs-10 table table-striped">
+				<thead>
+					<th>Id</th>
+					<th>Product Name</th>
+					<th>Product Brand</th>
+					<th>Product Model</th>
+					<th>Price</th>
+					<th>Action</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="product in products | filter : search">
+						<td>{{product.id}}</td>
+						<td>{{product.name}}</td>
+						<td>{{product.brand}}</td>
+						<td>{{product.model}}</td>
+						<td>${{product.price}}</td>
+						<td>
+							<button type="button" class="btn btn-default btn-sm btn-info" ng-click="addItemToCart(product)">
+          						<span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart
+        					</button>
+    					</td>
+					</tr>
+				</tbody>
+			</table>
+			<button class="btn col-xs-6 col-xs-offset-3 btn-success" ng-click="addProductPage();" type="button">Add Product</button>	
+		</div>
+	</div>
+
+</body>
+</html>
+<script src="Controller.js"></script>

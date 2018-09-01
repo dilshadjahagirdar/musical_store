@@ -1,0 +1,21 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+
+development:
+  adapter: postgresql
+  encoding: utf-8
+  pool: 5
+  username: musical_test
+  password: dilshad4149
+  host: localhost
+  port: 5432
+  database: "musical_store"
