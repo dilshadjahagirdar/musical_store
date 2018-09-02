@@ -3,7 +3,7 @@ class CartsController < ApplicationController
 
 	def index
 		@cart = Cart.all
-		render :json => {:cart => @cart}, status: 200
+		render 'index', formats: [:json], handlers: [:jbuilder], status: 200
 	end
 	def create
 		@cart = Cart.where(:item_id => params["id"])

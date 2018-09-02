@@ -12,7 +12,7 @@
 <body>
 	<div class="row" ng-app="myApp" ng-controller="myCtrl" ng-init="getProducts();loadCart();">
 		<div class="col-xs-12" style="padding: 50px;">
-			<button type="button" class="btn btn-default btn-sm btn-warning col-xs-2 pull-right" ng-click="addItemToCart(product.id)" style="margin: 10px; margin-right: 0px;	">
+			<button type="button" class="btn btn-default btn-sm btn-warning col-xs-2 pull-right" ng-click="cartPage();" style="margin: 10px; margin-right: 0px;	">
 				<span class="glyphicon glyphicon-shopping-cart"></span> Cart ({{cart.totalItem}}) ${{cart.cartTotal}}
 			</button>
 			<input class="form-control" type="text" ng-model="search" placeholder="Search item by name, model and brand"> 

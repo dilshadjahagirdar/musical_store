@@ -16,12 +16,11 @@ app.controller('myCtrl', function($scope,$http) {
 	$scope.loadCart = function () {
 		$http.get("/getCart").then(
 			function(response) {
-				$scope.cart = response.data.cart;
-				console.log("------",$scope.cart)
+				$scope.cart = response.data;
 				$scope.cart.cartTotal = $scope.cart.totalItem = 0;
 				for (var i = 0; i < $scope.cart.length; i++) {
-					$scope.cart.cartTotal = $scope.cart[i].item_total;
-					$scope.cart.totalItem = $scope.cart[i].quantity;
+					$scope.cart.cartTotal += $scope.cart[i].item_total;
+					$scope.cart.totalItem += $scope.cart[i].quantity;
 				}
 			},
 			function(error) {

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Musical Store</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="row" ng-app="myApp" ng-controller="myCtrl" ng-init="getProducts();loadCart();">
+		<div class="col-xs-12" style="padding: 50px;">
+			<button class="btn col-xs-2" type="submit" ng-click="indexPage();" style="margin-bottom: 50px">Back</button>
+			<table class="col-xs-10 table table-striped">
+				<thead>
+					<th>Id</th>
+					<th>Product Name</th>
+					<th>Product Brand</th>
+					<th>Product Model</th>
+					<th>Quantity</th>
+					<th>Cost</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="cart in cart">
+						<td>{{cart.cart_id}}</td>
+						<td>{{cart.product_name}}</td>
+						<td>{{cart.product_brand}}</td>
+						<td>${{cart.product_price}}</td>
+						<td>{{cart.quantity}}</td>
+						<td>${{cart.item_total}} </td>
+					</tr>
+					<tr style='font-weight:bold;'>
+						<td>Total</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>{{cart.totalItem}}</td>
+						<td>${{cart.cartTotal}} </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
+<script src="Controller.js"></script>
